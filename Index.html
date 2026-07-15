@@ -13,105 +13,95 @@
         }
 
         body {
-            background-color: #0d0d0d;
+            background-color: #000000;
             color: #ffffff;
             line-height: 1.6;
         }
 
-        header {
-            background-color: #1a1a1a;
-            border-bottom: 3px solid #ff8c00;
-            padding: 20px;
+        /* The Original Dark Hero Header Style */
+        .original-hero {
+            background-color: #000000;
+            padding: 80px 20px;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            border-bottom: 1px solid #111111;
         }
 
-        header h1 {
-            color: #ff8c00;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        header p {
-            font-size: 0.9rem;
-            color: #cccccc;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)), url('work1.jpg');
-            background-size: cover;
-            background-position: center;
-            border-bottom: 1px solid #2a2a2a;
-        }
-
-        .hero h2 {
-            font-size: 2.2rem;
+        .original-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #ffffff;
             margin-bottom: 15px;
-            color: #ffffff;
+            letter-spacing: -1px;
         }
 
-        .hero p {
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-            color: #dddddd;
-            font-size: 1.1rem;
+        /* Multicolored Logo Letters */
+        .re {
+            color: #38b6ff; /* Vibrant Cyan */
         }
 
-        .btn {
-            background-color: #ff8c00;
+        .model {
+            color: #ff5757; /* Hot Pinkish Red */
+        }
+
+        .ing {
+            color: #ffde59; /* Bright Yellow */
+        }
+
+        .original-hero p {
+            font-size: 1.2rem;
+            color: #aaaaaa;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* Round Pill Call Now Button */
+        .call-btn {
+            background: linear-gradient(135deg, #ff9100, #ff3c00);
             color: #ffffff;
-            padding: 12px 28px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+            padding: 15px 45px;
+            border-radius: 50px;
+            font-size: 1.15rem;
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 20px rgba(255, 115, 0, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .btn:hover {
-            background-color: #e07b00;
-            transform: translateY(-2px);
+        .call-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(255, 115, 0, 0.6);
         }
 
         /* Video Section */
         .video-section {
             padding: 50px 20px;
-            background-color: #111111;
+            background-color: #0a0a0a;
             text-align: center;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid #1a1a1a;
         }
 
         .video-section h2 {
             font-size: 2rem;
             color: #ff8c00;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
 
         .video-container {
             max-width: 800px;
             margin: 0 auto;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            border: 1px solid #2a2a2a;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            border: 1px solid #222222;
         }
 
         /* Image Gallery Section */
         .gallery-section {
             padding: 60px 20px;
             text-align: center;
-            background-color: #0d0d0d;
+            background-color: #000000;
         }
 
         .gallery-section h2 {
@@ -122,7 +112,7 @@
         }
 
         .gallery-section > p {
-            color: #aaaaaa;
+            color: #888888;
             margin-bottom: 40px;
         }
 
@@ -138,8 +128,8 @@
         .gallery-item {
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            border: 1px solid #2a2a2a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            border: 1px solid #1a1a1a;
             aspect-ratio: 4 / 3;
         }
 
@@ -156,27 +146,31 @@
             transform: scale(1.08);
         }
 
+        /* Contact Section */
+        .contact-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #ff8c00;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+            font-weight: 700;
+        }
+
         /* Booking Form Section */
         .booking-section {
-            padding: 60px 20px;
-            background-color: #111111;
+            padding: 20px 20px 60px 20px;
+            background-color: #000000;
         }
 
         .form-container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: #1a1a1a;
+            background-color: #0a0a0a;
             padding: 40px 30px;
-            border-radius: 8px;
-            border: 1px solid #2a2a2a;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .form-container h2 {
-            color: #ff8c00;
-            margin-bottom: 25px;
-            text-align: center;
-            font-size: 1.8rem;
+            border-radius: 12px;
+            border: 1px solid #1a1a1a;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
         }
 
         .form-group {
@@ -187,7 +181,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #dddddd;
+            color: #cccccc;
             font-weight: 500;
         }
 
@@ -196,9 +190,9 @@
         .form-group select {
             width: 100%;
             padding: 12px;
-            background-color: #2b2b2b;
-            border: 1px solid #444;
-            border-radius: 5px;
+            background-color: #161616;
+            border: 1px solid #333333;
+            border-radius: 6px;
             color: #ffffff;
             font-size: 1rem;
         }
@@ -208,6 +202,23 @@
         .form-group select:focus {
             outline: none;
             border-color: #ff8c00;
+        }
+
+        .submit-btn {
+            background-color: #ff8c00;
+            color: #ffffff;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #e07b00;
         }
 
         /* Lightbox Modal */
@@ -228,8 +239,7 @@
             max-width: 90%;
             max-height: 85%;
             border-radius: 5px;
-            box-shadow: 0 0 25px rgba(255, 140, 0, 0.3);
-            border: 2px solid #2a2a2a;
+            border: 2px solid #222222;
         }
 
         .close-btn {
@@ -240,19 +250,14 @@
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .close-btn:hover {
-            color: #ff8c00;
         }
 
         /* Footer Contacts */
         footer {
-            background-color: #0d0d0d;
+            background-color: #000000;
             padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid #2a2a2a;
+            border-top: 1px solid #111111;
         }
 
         footer h3 {
@@ -262,7 +267,7 @@
 
         footer p {
             margin: 8px 0;
-            color: #bbbbbb;
+            color: #999999;
         }
 
         footer a {
@@ -277,15 +282,10 @@
 </head>
 <body>
 
-    <header>
-        <h1>Apex Pro Remodeling LLC</h1>
-        <p>Premium Remodeling, Carpentry, and Tile Work</p>
-    </header>
-
-    <section class="hero">
-        <h2>Professional Craftsmanship You Can Trust</h2>
-        <p>We transform your residential and commercial spaces into modern, functional works of art. Look below at some of our actual, high-quality projects and book an appointment today.</p>
-        <a href="#book" class="btn">Get a Free Estimate</a>
+    <section class="original-hero">
+        <h1>Apex pro <span class="re">re</span><span class="model">model</span><span class="ing">ing</span> LLC</h1>
+        <p>Committed to providing the best service to our customers.</p>
+        <a href="tel:5163148152" class="call-btn">📞 Call Now</a>
     </section>
 
     <section class="video-section">
@@ -331,9 +331,10 @@
         </div>
     </section>
 
-    <section id="book" class="booking-section">
+    <h2 class="contact-title">Contact</h2>
+
+    <section class="booking-section">
         <div class="form-container">
-            <h2>Book an Appointment</h2>
             <form action="https://formsubmit.co/apexproremodeling@gmail.com" method="POST">
                 <div class="form-group">
                     <label for="name">Your Name</label>
@@ -366,7 +367,7 @@
                     <label for="details">Project Details</label>
                     <textarea id="details" name="details" rows="5" placeholder="Tell us more about your ideas..." required></textarea>
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
+                <button type="submit" class="submit-btn">Submit Request</button>
             </form>
         </div>
     </section>
@@ -382,7 +383,7 @@
         <p style="margin-top: 15px;">📞 Cell: <a href="tel:5163148152">(516) 314-8152</a></p>
         <p>📞 Phone: <a href="tel:5163990494">(516) 399-0494</a></p>
         <p>✉️ Email: <a href="mailto:apexproremodeling@gmail.com">apexproremodeling@gmail.com</a></p>
-        <p style="margin-top: 25px; font-size: 0.8rem; color: #666666;">&copy; 2026 Apex Pro Remodeling LLC. All rights reserved.</p>
+        <p style="margin-top: 25px; font-size: 0.8rem; color: #444444;">&copy; 2026 Apex Pro Remodeling LLC. All rights reserved.</p>
     </footer>
 
     <script>
