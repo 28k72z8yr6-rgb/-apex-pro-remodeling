@@ -89,7 +89,7 @@
         /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            height: 70vh;
+            height: 75vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -120,6 +120,13 @@
             margin-right: auto;
         }
 
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
         .btn-call {
             background: linear-gradient(135deg, #d45d00, #b33600);
             color: white;
@@ -141,13 +148,36 @@
             box-shadow: 0 6px 20px rgba(212, 93, 0, 0.6);
         }
 
+        /* Free Estimate Callout badge */
+        .estimate-badge {
+            background-color: rgba(0, 210, 255, 0.15);
+            border: 1px dashed #00d2ff;
+            color: #00d2ff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
         /* --- CONTACT CARDS SECTION --- */
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             color: #f07b07;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             scroll-margin-top: 100px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #c5c6c7;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
         }
 
         .contact-grid {
@@ -320,6 +350,7 @@
         .gallery-section {
             padding: 60px 0;
             text-align: center;
+            border-top: 1px solid #1f2833;
             scroll-margin-top: 100px;
         }
 
@@ -354,6 +385,75 @@
 
         .gallery-item img:hover {
             transform: scale(1.08);
+        }
+
+        /* --- REVIEWS SECTION --- */
+        .reviews-section {
+            padding: 60px 0;
+            border-top: 1px solid #1f2833;
+            text-align: center;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .review-card {
+            background-color: #16171e;
+            border: 1px solid #1f2833;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars {
+            color: #feb101;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            color: #c5c6c7;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #1f2833;
+            color: #f07b07;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .reviewer-details h4 {
+            font-size: 0.95rem;
+            color: #ffffff;
+        }
+
+        .reviewer-details span {
+            font-size: 0.8rem;
+            color: #8f9092;
         }
 
         /* --- LIGHTBOX MODAL --- */
@@ -444,13 +544,18 @@
         <div class="hero-content">
             <h1>Apex pro <span>remodeling</span> LLC</h1>
             <p>Committed to providing the best service to our customers.</p>
-            <a href="tel:3035216431" class="btn-call">📞 Call Now</a>
+            <div class="hero-buttons">
+                <a href="tel:3035216431" class="btn-call">📞 Call Now</a>
+                <div class="estimate-badge">🏷️ Free Estimates!</div>
+            </div>
         </div>
     </section>
 
     <div class="container">
         
         <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Reach out today for your 100% Free Consultation and Estimate!</p>
+        
         <div class="contact-grid">
             <div class="contact-card card-phone">
                 <div class="card-icon">☎️</div>
@@ -480,6 +585,7 @@
             <div class="booking-header">
                 <div style="font-size: 2rem;">📅</div>
                 <h2>Book Appointment</h2>
+                <p style="color: #ffffff; font-size: 0.9rem; margin-top: 5px;">Secure your free estimate project consultation</p>
             </div>
             <form class="booking-form" action="https://formsubmit.co/apexp800@gmail.com" method="POST">
                 <div class="form-group">
@@ -556,6 +662,55 @@
                 <div class="gallery-item"><img src="work23.jpg" alt="Work 23" onclick="openModal(this.src)"></div>
                 <div class="gallery-item"><img src="work24.jpg" alt="Work 24" onclick="openModal(this.src)"></div>
                 <div class="gallery-item"><img src="work25.jpg" alt="Work 25" onclick="openModal(this.src)"></div>
+            </div>
+        </section>
+
+        <section class="reviews-section">
+            <h2 class="section-title">Reviews</h2>
+            <p class="section-subtitle">What Our Happy Customers Say About Us</p>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Apex Pro Remodeling did an amazing job with our kitchen remodel. Fast, neat, and highly professional. Highly recommended!"</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">JD</div>
+                        <div class="reviewer-details">
+                            <h4>John D.</h4>
+                            <span>Aurora, CO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Outstanding attention to detail on our tile and bathroom renovation. Their team communicated great throughout the process."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">MS</div>
+                        <div class="reviewer-details">
+                            <h4>Maria S.</h4>
+                            <span>Denver, CO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"They repaired our backyard deck flawlessly. It looks brand new! Their estimate was very fair and they finished right on schedule."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">RK</div>
+                        <div class="reviewer-details">
+                            <h4>Robert K.</h4>
+                            <span>Centennial, CO</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
