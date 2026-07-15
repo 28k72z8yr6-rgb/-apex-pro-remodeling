@@ -148,7 +148,6 @@
             box-shadow: 0 6px 20px rgba(212, 93, 0, 0.6);
         }
 
-        /* Free Estimate Callout badge */
         .estimate-badge {
             background-color: rgba(0, 210, 255, 0.15);
             border: 1px dashed #00d2ff;
@@ -297,7 +296,7 @@
             letter-spacing: 1px;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group textarea, .form-group select {
             background-color: #20222e;
             border: 1px solid #2e3041;
             padding: 15px;
@@ -308,7 +307,7 @@
             transition: border-color 0.2s;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
             border-color: #f07b07;
         }
 
@@ -359,7 +358,6 @@
             margin-bottom: 30px;
         }
 
-        /* Photo Grid Setup */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -387,11 +385,35 @@
             transform: scale(1.08);
         }
 
-        /* --- REVIEWS SECTION --- */
+        /* --- REVIEWS & LEAVE A REVIEW SECTION --- */
         .reviews-section {
             padding: 60px 0;
             border-top: 1px solid #1f2833;
             text-align: center;
+        }
+
+        /* Dynamic submission card styling */
+        .leave-review-container {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            background-color: #16171e;
+            border: 1px solid #1f2833;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .leave-review-container h3 {
+            color: #f07b07;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .star-select {
+            color: #feb101;
+            font-size: 1.4rem;
         }
 
         .reviews-grid {
@@ -411,6 +433,12 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            animation: cardAppear 0.4s ease forwards;
+        }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .stars {
@@ -444,6 +472,7 @@
             justify-content: center;
             font-weight: bold;
             font-size: 1.1rem;
+            text-transform: uppercase;
         }
 
         .reviewer-details h4 {
@@ -667,9 +696,42 @@
 
         <section class="reviews-section">
             <h2 class="section-title">Reviews</h2>
-            <p class="section-subtitle">What Our Happy Customers Say About Us</p>
+            <p class="section-subtitle" style="margin-bottom: 30px;">What Our Happy Customers Say About Us</p>
             
-            <div class="reviews-grid">
+            <div class="leave-review-container">
+                <h3>✍️ Leave a Review</h3>
+                <form id="reviewForm" onsubmit="submitReview(event)" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="form-group">
+                        <label for="revName">Your Name *</label>
+                        <input type="text" id="revName" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="revCity">Your City *</label>
+                        <input type="text" id="revCity" required placeholder="Aurora, CO">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="revRating">Rating *</label>
+                        <select id="revRating" required class="star-select">
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                            <option value="3">⭐⭐⭐ (3/5)</option>
+                            <option value="2">⭐⭐ (2/5)</option>
+                            <option value="1">⭐ (1/5)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="revText">Your Review *</label>
+                        <textarea id="revText" required rows="3" placeholder="Write your feedback here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Review ✨</button>
+                </form>
+            </div>
+            
+            <div class="reviews-grid" id="reviewsGrid">
                 <div class="review-card">
                     <div>
                         <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -736,6 +798,50 @@
 
         function closeModal() {
             document.getElementById("imageModal").style.display = "none";
+        }
+
+        // Handles submitting a new review and appending it instantly
+        function submitReview(event) {
+            event.preventDefault();
+
+            // Get Form values
+            const name = document.getElementById('revName').value.trim();
+            const city = document.getElementById('revCity').value.trim();
+            const rating = parseInt(document.getElementById('revRating').value);
+            const text = document.getElementById('revText').value.trim();
+
+            if (!name || !city || !text) return;
+
+            // Generate Star string
+            const starString = "⭐".repeat(rating);
+
+            // Get First letters for user Profile Avatar circle
+            const initials = name.split(" ").map(n => n[0]).join("").substring(0, 2);
+
+            // Create New Review Element Block
+            const reviewGrid = document.getElementById('reviewsGrid');
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `
+                <div>
+                    <div class="stars">${starString}</div>
+                    <p class="review-text">"${text}"</p>
+                </div>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">${initials}</div>
+                    <div class="reviewer-details">
+                        <h4>${name}</h4>
+                        <span>${city}</span>
+                    </div>
+                </div>
+            `;
+
+            // Insert new review at the very top of grid
+            reviewGrid.insertBefore(card, reviewGrid.firstChild);
+
+            // Reset Submission Form fields
+            document.getElementById('reviewForm').reset();
+            alert("Thank you! Your review has been submitted successfully. ✨");
         }
     </script>
 </body>
