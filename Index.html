@@ -297,13 +297,48 @@
 
         .gallery-section p {
             color: #8f9092;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
 
+        /* Filter Navigation Bar */
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .filter-btn {
+            background-color: #16171e;
+            color: #c5c6c7;
+            border: 1px solid #2e3041;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: #f07b07;
+            color: #ffffff;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #f07b07, #a85000);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(240, 123, 7, 0.3);
+        }
+
+        /* Photo Grid Setup */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
+            transition: all 0.5s ease;
         }
 
         .gallery-item {
@@ -312,6 +347,13 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             border: 1px solid #1f2833;
             aspect-ratio: 4 / 3;
+            display: none; /* Controlled by JavaScript */
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .gallery-item img {
@@ -325,6 +367,32 @@
 
         .gallery-item img:hover {
             transform: scale(1.08);
+        }
+
+        /* Show More Toggle Button */
+        .gallery-actions {
+            margin-top: 40px;
+        }
+
+        .btn-expand {
+            background: transparent;
+            border: 2px solid #f07b07;
+            color: #f07b07;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-expand:hover {
+            background: #f07b07;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(240, 123, 7, 0.4);
         }
 
         /* --- LIGHTBOX MODAL --- */
@@ -485,51 +553,115 @@
 
         <section class="gallery-section">
             <h2 class="section-title">Our Work Gallery</h2>
-            <p>Tap any image to view it full screen</p>
+            <p>Select a folder to view different projects</p>
+            
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterGallery('all')">📂 Show All</button>
+                <button class="filter-btn" onclick="filterGallery('kitchen')">🍳 Kitchens</button>
+                <button class="filter-btn" onclick="filterGallery('bathroom')">🚿 Bathrooms</button>
+                <button class="filter-btn" onclick="filterGallery('tile')">🧱 Tile & Flooring</button>
+                <button class="filter-btn" onclick="filterGallery('exterior')">🏡 Framing & Deck</button>
+            </div>
             
             <div class="image-grid">
-                <div class="gallery-item"><img src="work1.jpg" alt="Work 1" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work2.jpg" alt="Work 2" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work3.jpg" alt="Work 3" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work4.jpg" alt="Work 4" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work5.jpg" alt="Work 5" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work6.jpg" alt="Work 6" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work7.jpg" alt="Work 7" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work8.jpg" alt="Work 8" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work9.jpg" alt="Work 9" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work10.jpg" alt="Work 10" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work11.jpg" alt="Work 11" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work12.jpg" alt="Work 12" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work13.jpg" alt="Work 13" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work14.jpg" alt="Work 14" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work15.jpg" alt="Work 15" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work16.jpg" alt="Work 16" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work17.jpg" alt="Work 17" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work18.jpg" alt="Work 18" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work19.jpg" alt="Work 19" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work20.jpg" alt="Work 20" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work21.jpg" alt="Work 21" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work22.jpg" alt="Work 22" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work23.jpg" alt="Work 23" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work24.jpg" alt="Work 24" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work25.jpg" alt="Work 25" onclick="openModal(this.src)"></div>
+                <div class="gallery-item kitchen"><img src="work1.jpg" alt="Work 1" onclick="openModal(this.src)"></div>
+                <div class="gallery-item bathroom"><img src="work2.jpg" alt="Work 2" onclick="openModal(this.src)"></div>
+                <div class="gallery-item tile"><img src="work3.jpg" alt="Work 3" onclick="openModal(this.src)"></div>
+                <div class="gallery-item exterior"><img src="work4.jpg" alt="Work 4" onclick="openModal(this.src)"></div>
+                <div class="gallery-item kitchen"><img src="work5.jpg" alt="Work 5" onclick="openModal(this.src)"></div>
+                <div class="gallery-item bathroom"><img src="work6.jpg" alt="Work 6" onclick="openModal(this.src)"></div>
+                <div class="gallery-item tile"><img src="work7.jpg" alt="Work 7" onclick="openModal(this.src)"></div>
+                <div class="gallery-item exterior"><img src="work8.jpg" alt="Work 8" onclick="openModal(this.src)"></div>
+                
+                <div class="gallery-item kitchen"><img src="work9.jpg" alt="Work 9" onclick="openModal(this.src)"></div>
+                <div class="gallery-item bathroom"><img src="work10.jpg" alt="Work 10" onclick="openModal(this.src)"></div>
+                <div class="gallery-item tile"><img src="work11.jpg" alt="Work 11" onclick="openModal(this.src)"></div>
+                <div class="gallery-item exterior"><img src="work12.jpg" alt="Work 12" onclick="openModal(this.src)"></div>
+                <div class="gallery-item kitchen"><img src="work13.jpg" alt="Work 13" onclick="openModal(this.src)"></div>
+                <div class="gallery-item bathroom"><img src="work14.jpg" alt="Work 14" onclick="openModal(this.src)"></div>
+                <div class="gallery-item tile"><img src="work15.jpg" alt="Work 15" onclick="openModal(this.src)"></div>
+                <div class="gallery-item exterior"><img src="work16.jpg" alt="Work 16" onclick="openModal(this.src)"></div>
+                <div class="gallery-item kitchen"><img src="work17.jpg" alt="Work 17" onclick="openModal(this.src)"></div>
+                <div class="gallery-item bathroom"><img src="work18.jpg" alt="Work 18" onclick="openModal(this.src)"></div>
+                <div class="gallery-item tile"><img src="work19.jpg" alt="Work 19" onclick="openModal(this.src)"></div>
+                <div class="gallery-item exterior"><img src="work20.jpg" alt="Work 20" onclick="openModal(this.src)"></div>
+                <div class="gallery-item kitchen"><img src="work21.jpg" alt="Work 21" onclick="openModal(this.src)"></div>
+                <div class="gallery-item bathroom"><img src="work22.jpg" alt="Work 22" onclick="openModal(this.src)"></div>
+                <div class="gallery-item tile"><img src="work23.jpg" alt="Work 23" onclick="openModal(this.src)"></div>
+                <div class="gallery-item exterior"><img src="work24.jpg" alt="Work 24" onclick="openModal(this.src)"></div>
+                <div class="gallery-item tile"><img src="work25.jpg" alt="Work 25" onclick="openModal(this.src)"></div>
+            </div>
+
+            <div class="gallery-actions">
+                <button class="btn-expand" id="toggle-btn" onclick="toggleGalleryLimit()">✨ Show More Photos</button>
             </div>
         </section>
 
     </div>
 
     <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close-btn">&times;</span>
+        <span class="close-btn">×</span>
         <img class="modal-content" id="modalImg" alt="Enlarged View">
     </div>
 
     <footer>
         <h3>Apex Pro Remodeling LLC</h3>
         <p>Providing premium residential and commercial contracting services.</p>
-        <p style="margin-top: 15px;">&copy; 2026 Apex Pro Remodeling LLC. All rights reserved.</p>
+        <p style="margin-top: 15px;">© 2026 Apex Pro Remodeling LLC. All rights reserved.</p>
     </footer>
 
     <script>
+        // Gallery Interactive Configuration
+        let isExpanded = false;
+        let currentFilter = 'all';
+        const defaultShowLimit = 8; // Shows first 8 images initially
+
+        function renderGallery() {
+            const items = document.querySelectorAll('.gallery-item');
+            let visibleCount = 0;
+
+            items.forEach((item) => {
+                const matchesFilter = (currentFilter === 'all' || item.classList.contains(currentFilter));
+                
+                if (matchesFilter) {
+                    if (isExpanded || visibleCount < defaultShowLimit) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Handle Show More Button text and visibility
+            const toggleBtn = document.getElementById('toggle-btn');
+            if (visibleCount <= defaultShowLimit) {
+                toggleBtn.style.display = 'none';
+            } else {
+                toggleBtn.style.display = 'inline-flex';
+                toggleBtn.textContent = isExpanded ? '✨ Show Less Photos' : '✨ Show More Photos';
+            }
+        }
+
+        function filterGallery(category) {
+            currentFilter = category;
+            
+            // Highlight active button
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            renderGallery();
+        }
+
+        function toggleGalleryLimit() {
+            isExpanded = !isExpanded;
+            renderGallery();
+        }
+
+        // Lightbox Functions
         function openModal(src) {
             document.getElementById("imageModal").style.display = "flex";
             document.getElementById("modalImg").src = src;
@@ -538,6 +670,9 @@
         function closeModal() {
             document.getElementById("imageModal").style.display = "none";
         }
+
+        // Run on page load
+        window.onload = renderGallery;
     </script>
 </body>
 </html>
