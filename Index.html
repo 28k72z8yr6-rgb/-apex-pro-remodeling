@@ -120,11 +120,12 @@
             margin-right: auto;
         }
 
-        .hero-buttons {
+        .hero-badges-wrapper {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
         }
 
         .btn-call {
@@ -161,6 +162,68 @@
             align-items: center;
             gap: 8px;
             text-transform: uppercase;
+        }
+
+        .licensed-badge {
+            background-color: rgba(71, 118, 230, 0.15);
+            border: 1px dashed #4776e6;
+            color: #8e54e9;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-section {
+            padding: 40px 0 60px 0;
+            text-align: center;
+            border-bottom: 1px solid #1f2833;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .service-card {
+            background-color: #16171e;
+            border: 1px solid #1f2833;
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #f07b07;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #f07b07;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: #c5c6c7;
         }
 
         /* --- CONTACT CARDS SECTION --- */
@@ -563,6 +626,7 @@
         </div>
         <nav class="nav-links">
             <a href="#home">Home</a>
+            <a href="#services">Our Services</a>
             <a href="#video">Watch Us in Action</a>
             <a href="#gallery">Our Work Gallery</a>
         </nav>
@@ -571,17 +635,58 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Apex pro <span>remodeling</span> LLC</h1>
-            <p>Committed to providing the best service to our customers.</p>
+            <p style="margin-bottom: 10px; font-weight: bold; color: #ffffff;">Professional Home Remodeling in Colorado</p>
+            <p>We provide high-quality kitchen remodeling, basement finishing, flooring, painting, drywall, tile installation, and trim carpentry. Free estimates and fair pricing.</p>
+            <div class="hero-badges-wrapper">
+                <div class="estimate-badge">🏷️ Free Estimates!</div>
+                <div class="licensed-badge">🛡️ Fully Licensed & Insured</div>
+            </div>
             <div class="hero-buttons">
                 <a href="tel:3035216431" class="btn-call">📞 Call Now</a>
-                <div class="estimate-badge">🏷️ Free Estimates!</div>
             </div>
         </div>
     </section>
 
     <div class="container">
+
+        <section class="services-section" id="services">
+            <h2 class="section-title">Professional Services</h2>
+            <p class="section-subtitle">Premium Residential & Commercial Contracting Work</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Kitchen Remodeling & Cabinets</h3>
+                    <p>Complete layout renovations, premium cabinet installation, plumbing adjustments, and beautiful design mockups tailored to your space.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Basement Finishing</h3>
+                    <p>Transform unused, rough spaces into stunning livable areas, extra bedrooms, recreational family rooms, or home offices.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>Floor Covering & Tile</h3>
+                    <p>Expert floor covering installations including hardwoods, luxury vinyl planks (LVP), and intricate bathroom or kitchen tile installation.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🪚</div>
+                    <h3>Interior Carpentry Work</h3>
+                    <p>High-end interior trim carpentry, modern crown molding, baseboard upgrades, custom framing, and structural wood improvements.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Drywall & Painting</h3>
+                    <p>Smooth drywall installation, professional tape & texture matching, seamless repairs, and premium interior painting coats that last.</p>
+                </div>
+            </div>
+        </section>
         
-        <h2 class="section-title">Contact</h2>
+        <h2 class="section-title" style="margin-top: 60px;">Contact</h2>
         <p class="section-subtitle">Reach out today for your 100% Free Consultation and Estimate!</p>
         
         <div class="contact-grid">
@@ -730,7 +835,49 @@
                 </form>
             </div>
             
-            <div class="reviews-grid" id="reviewsGrid"></div>
+            <div class="reviews-grid" id="reviewsGrid">
+                <div class="review-card">
+                    <div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Apex Pro Remodeling did an amazing job with our kitchen remodel. Fast, neat, and highly professional. Highly recommended!"</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">JD</div>
+                        <div class="reviewer-details">
+                            <h4>John D.</h4>
+                            <span>Aurora, CO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Outstanding attention to detail on our tile and bathroom renovation. Their team communicated great throughout the process."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">MS</div>
+                        <div class="reviewer-details">
+                            <h4>Maria S.</h4>
+                            <span>Denver, CO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"They repaired our backyard deck flawlessly. It looks brand new! Their estimate was very fair and they finished right on schedule."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">RK</div>
+                        <div class="reviewer-details">
+                            <h4>Robert K.</h4>
+                            <span>Centennial, CO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </div>
