@@ -274,9 +274,9 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* --- APPOINTMENT FORM / CALENDLY CONTAINER --- */
+        /* --- APPOINTMENT FORM --- */
         .booking-container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto 60px auto;
             background-color: #16171e;
             border-radius: 24px;
@@ -293,6 +293,59 @@
         .booking-header h2 {
             font-size: 1.8rem;
             margin-top: 10px;
+        }
+
+        .booking-form {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #a0a5b5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            background-color: #20222e;
+            border: 1px solid #2e3041;
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #f07b07;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #f07b07, #a85000);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
         }
 
         /* --- VIDEO WORK SECTION --- */
@@ -487,9 +540,39 @@
                 <h2>Book Appointment</h2>
                 <p style="color: #ffffff; font-size: 0.9rem; margin-top: 5px;">Secure your free estimate project consultation</p>
             </div>
-            
-            <div class="calendly-inline-widget" data-url="https://calendly.com/aliahmadhaidari0303?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px; height:650px; background-color: #16171e;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <form class="booking-form" action="https://formsubmit.co/apexp800@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Project / Service Address</label>
+                    <input type="text" id="address" name="address" placeholder="123 Main St, Aurora, CO (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Select Date *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Additional notes or project details (optional)"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">✨ Book Now</button>
+            </form>
         </div>
 
         <section class="video-section" id="video">
