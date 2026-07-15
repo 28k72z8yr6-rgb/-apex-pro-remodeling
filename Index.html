@@ -94,9 +94,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
-                        url('work1.jpg') no-repeat center center/cover;
+            /* Keeps the gradient overlay and leaves image control to JavaScript */
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85));
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 20px;
+            transition: background 0.8s ease-in-out; /* Adds a smooth transition fade */
         }
 
         .hero-content h1 {
@@ -177,53 +181,6 @@
             align-items: center;
             gap: 8px;
             text-transform: uppercase;
-        }
-
-        /* --- SERVICES SECTION --- */
-        .services-section {
-            padding: 40px 0 60px 0;
-            text-align: center;
-            border-bottom: 1px solid #1f2833;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 35px;
-        }
-
-        .service-card {
-            background-color: #16171e;
-            border: 1px solid #1f2833;
-            border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: #f07b07;
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: #f07b07;
-        }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            color: #ffffff;
-        }
-
-        .service-card p {
-            font-size: 0.9rem;
-            color: #c5c6c7;
         }
 
         /* --- CONTACT CARDS SECTION --- */
@@ -448,105 +405,6 @@
             transform: scale(1.08);
         }
 
-        /* --- REVIEWS & LEAVE A REVIEW SECTION --- */
-        .reviews-section {
-            padding: 60px 0;
-            border-top: 1px solid #1f2833;
-            text-align: center;
-        }
-
-        .leave-review-container {
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            background-color: #16171e;
-            border: 1px solid #1f2833;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: left;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
-
-        .leave-review-container h3 {
-            color: #f07b07;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-            text-align: center;
-        }
-
-        .star-select {
-            color: #feb101;
-            font-size: 1.4rem;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .review-card {
-            background-color: #16171e;
-            border: 1px solid #1f2833;
-            border-radius: 16px;
-            padding: 30px;
-            text-align: left;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            animation: cardAppear 0.4s ease forwards;
-        }
-
-        @keyframes cardAppear {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .stars {
-            color: #feb101;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
-        .review-text {
-            color: #c5c6c7;
-            font-size: 0.95rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .reviewer-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .reviewer-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: #1f2833;
-            color: #f07b07;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-        }
-
-        .reviewer-details h4 {
-            font-size: 0.95rem;
-            color: #ffffff;
-        }
-
-        .reviewer-details span {
-            font-size: 0.8rem;
-            color: #8f9092;
-        }
-
         /* --- LIGHTBOX MODAL --- */
         .modal {
             display: none; 
@@ -626,7 +484,6 @@
         </div>
         <nav class="nav-links">
             <a href="#home">Home</a>
-            <a href="#services">Our Services</a>
             <a href="#video">Watch Us in Action</a>
             <a href="#gallery">Our Work Gallery</a>
         </nav>
@@ -648,43 +505,6 @@
     </section>
 
     <div class="container">
-
-        <section class="services-section" id="services">
-            <h2 class="section-title">Professional Services</h2>
-            <p class="section-subtitle">Premium Residential & Commercial Contracting Work</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🔨</div>
-                    <h3>Kitchen Remodeling & Cabinets</h3>
-                    <p>Complete layout renovations, premium cabinet installation, plumbing adjustments, and beautiful design mockups tailored to your space.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🏠</div>
-                    <h3>Basement Finishing</h3>
-                    <p>Transform unused, rough spaces into stunning livable areas, extra bedrooms, recreational family rooms, or home offices.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📐</div>
-                    <h3>Floor Covering & Tile</h3>
-                    <p>Expert floor covering installations including hardwoods, luxury vinyl planks (LVP), and intricate bathroom or kitchen tile installation.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🪚</div>
-                    <h3>Interior Carpentry Work</h3>
-                    <p>High-end interior trim carpentry, modern crown molding, baseboard upgrades, custom framing, and structural wood improvements.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Drywall & Painting</h3>
-                    <p>Smooth drywall installation, professional tape & texture matching, seamless repairs, and premium interior painting coats that last.</p>
-                </div>
-            </div>
-        </section>
         
         <h2 class="section-title" style="margin-top: 60px;">Contact</h2>
         <p class="section-subtitle">Reach out today for your 100% Free Consultation and Estimate!</p>
@@ -798,88 +618,6 @@
             </div>
         </section>
 
-        <section class="reviews-section">
-            <h2 class="section-title">Reviews</h2>
-            <p class="section-subtitle" style="margin-bottom: 30px;">What Our Happy Customers Say About Us</p>
-            
-            <div class="leave-review-container">
-                <h3>✍️ Leave a Review</h3>
-                <form id="reviewForm" onsubmit="submitReview(event)" style="display: flex; flex-direction: column; gap: 15px;">
-                    <div class="form-group">
-                        <label for="revName">Your Name *</label>
-                        <input type="text" id="revName" required placeholder="John Doe">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="revCity">Your City *</label>
-                        <input type="text" id="revCity" required placeholder="Aurora, CO">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="revRating">Rating *</label>
-                        <select id="revRating" required class="star-select">
-                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
-                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
-                            <option value="3">⭐⭐⭐ (3/5)</option>
-                            <option value="2">⭐⭐ (2/5)</option>
-                            <option value="1">⭐ (1/5)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="revText">Your Review *</label>
-                        <textarea id="revText" required rows="3" placeholder="Write your feedback here..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Submit Review ✨</button>
-                </form>
-            </div>
-            
-            <div class="reviews-grid" id="reviewsGrid">
-                <div class="review-card">
-                    <div>
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="review-text">"Apex Pro Remodeling did an amazing job with our kitchen remodel. Fast, neat, and highly professional. Highly recommended!"</p>
-                    </div>
-                    <div class="reviewer-info">
-                        <div class="reviewer-avatar">JD</div>
-                        <div class="reviewer-details">
-                            <h4>John D.</h4>
-                            <span>Aurora, CO</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div>
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="review-text">"Outstanding attention to detail on our tile and bathroom renovation. Their team communicated great throughout the process."</p>
-                    </div>
-                    <div class="reviewer-info">
-                        <div class="reviewer-avatar">MS</div>
-                        <div class="reviewer-details">
-                            <h4>Maria S.</h4>
-                            <span>Denver, CO</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div>
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p class="review-text">"They repaired our backyard deck flawlessly. It looks brand new! Their estimate was very fair and they finished right on schedule."</p>
-                    </div>
-                    <div class="reviewer-info">
-                        <div class="reviewer-avatar">RK</div>
-                        <div class="reviewer-details">
-                            <h4>Robert K.</h4>
-                            <span>Centennial, CO</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </div>
 
     <div id="imageModal" class="modal" onclick="closeModal()">
@@ -904,49 +642,24 @@
             document.getElementById("imageModal").style.display = "none";
         }
 
-        // Handles submitting a new review and appending it instantly
-        function submitReview(event) {
-            event.preventDefault();
+        // Hero Background Slideshow logic (1 to 25)
+        const heroSection = document.getElementById("home");
+        const totalImages = 25;
+        let currentImageIndex = 1;
 
-            // Get Form values
-            const name = document.getElementById('revName').value.trim();
-            const city = document.getElementById('revCity').value.trim();
-            const rating = parseInt(document.getElementById('revRating').value);
-            const text = document.getElementById('revText').value.trim();
-
-            if (!name || !city || !text) return;
-
-            // Generate Star string
-            const starString = "⭐".repeat(rating);
-
-            // Get First letters for user Profile Avatar circle
-            const initials = name.split(" ").map(n => n[0]).join("").substring(0, 2);
-
-            // Create New Review Element Block
-            const reviewGrid = document.getElementById('reviewsGrid');
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `
-                <div>
-                    <div class="stars">${starString}</div>
-                    <p class="review-text">"${text}"</p>
-                </div>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar">${initials}</div>
-                    <div class="reviewer-details">
-                        <h4>${name}</h4>
-                        <span>${city}</span>
-                    </div>
-                </div>
-            `;
-
-            // Insert new review at the very top of grid
-            reviewGrid.insertBefore(card, reviewGrid.firstChild);
-
-            // Reset Submission Form fields
-            document.getElementById('reviewForm').reset();
-            alert("Thank you! Your review has been submitted successfully. ✨");
+        function changeHeroBackground() {
+            // Keep the text-friendly dark gradient while setting the background image dynamically
+            heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('work${currentImageIndex}.jpg')`;
+            
+            // Advance index, cycle back to 1 after 25
+            currentImageIndex = (currentImageIndex % totalImages) + 1;
         }
+
+        // Initialize the first image instantly on load
+        changeHeroBackground();
+
+        // Run the background cycle every 3 seconds (3000ms)
+        setInterval(changeHeroBackground, 3000);
     </script>
 </body>
 </html>
