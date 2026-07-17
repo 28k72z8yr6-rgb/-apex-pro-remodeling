@@ -346,17 +346,34 @@
             opacity: 0.9;
         }
 
+        /* --- TWO-COLUMN "FOLDER" GRID (From Your Drawing) --- */
+        .drawing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .folder-card {
+            background-color: #16171e;
+            border: 2px solid #1f2833;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         /* --- VIDEO WORK SECTION --- */
         .video-section {
-            padding: 60px 0;
             text-align: center;
-            border-top: 1px solid #1f2833;
             scroll-margin-top: 100px;
         }
 
         .video-container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
@@ -365,21 +382,34 @@
 
         /* --- WORK GALLERY GRID --- */
         .gallery-section {
-            padding: 60px 0;
             text-align: center;
-            border-top: 1px solid #1f2833;
             scroll-margin-top: 100px;
         }
 
         .gallery-section p {
             color: #8f9092;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        /* Webkit scrollbar styles for gallery inside folder card */
+        .image-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+        .image-grid::-webkit-scrollbar-track {
+            background: #0b0c10;
+        }
+        .image-grid::-webkit-scrollbar-thumb {
+            background: #f07b07;
+            border-radius: 3px;
         }
 
         .gallery-item {
@@ -454,6 +484,13 @@
         }
 
         /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 992px) {
+            .drawing-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -573,48 +610,81 @@
             </form>
         </div>
 
-        <section class="video-section" id="video">
-            <h2 class="section-title">Watch Us in Action</h2>
-            <div class="video-container">
-                <video width="100%" controls poster="work1.jpg" style="display: block;">
-                    <source src="promo-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </section>
-
-        <section class="gallery-section" id="gallery">
-            <h2 class="section-title">Our Work Gallery</h2>
-            <p>Tap any image to view it full screen</p>
+        <div class="drawing-grid">
             
-            <div class="image-grid">
-                <div class="gallery-item"><img src="work1.jpg" alt="Work 1" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work2.jpg" alt="Work 2" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work3.jpg" alt="Work 3" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work4.jpg" alt="Work 4" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work5.jpg" alt="Work 5" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work6.jpg" alt="Work 6" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work7.jpg" alt="Work 7" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work8.jpg" alt="Work 8" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work9.jpg" alt="Work 9" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work10.jpg" alt="Work 10" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work11.jpg" alt="Work 11" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work12.jpg" alt="Work 12" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work13.jpg" alt="Work 13" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work14.jpg" alt="Work 14" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work15.jpg" alt="Work 15" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work16.jpg" alt="Work 16" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work17.jpg" alt="Work 17" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work18.jpg" alt="Work 18" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work19.jpg" alt="Work 19" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work20.jpg" alt="Work 20" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work21.jpg" alt="Work 21" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work22.jpg" alt="Work 22" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work23.jpg" alt="Work 23" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work24.jpg" alt="Work 24" onclick="openModal(this.src)"></div>
-                <div class="gallery-item"><img src="work25.jpg" alt="Work 25" onclick="openModal(this.src)"></div>
+            <div class="folder-card">
+                <section class="gallery-section" id="gallery">
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 5px;">Our Work Gallery</h2>
+                    <p>Tap any image to view it full screen</p>
+                    
+                    <div class="image-grid">
+                        <div class="gallery-item"><img src="work1.jpg" alt="Work 1" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work2.jpg" alt="Work 2" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work3.jpg" alt="Work 3" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work4.jpg" alt="Work 4" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work5.jpg" alt="Work 5" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work6.jpg" alt="Work 6" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work7.jpg" alt="Work 7" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work8.jpg" alt="Work 8" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work9.jpg" alt="Work 9" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work10.jpg" alt="Work 10" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work11.jpg" alt="Work 11" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work12.jpg" alt="Work 12" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work13.jpg" alt="Work 13" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work14.jpg" alt="Work 14" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work15.jpg" alt="Work 15" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work16.jpg" alt="Work 16" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work17.jpg" alt="Work 17" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work18.jpg" alt="Work 18" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work19.jpg" alt="Work 19" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work20.jpg" alt="Work 20" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work21.jpg" alt="Work 21" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work22.jpg" alt="Work 22" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work23.jpg" alt="Work 23" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work24.jpg" alt="Work 24" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work25.jpg" alt="Work 25" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work26.jpg" alt="Work 26" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work27.jpg" alt="Work 27" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work28.jpg" alt="Work 28" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work29.jpg" alt="Work 29" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work30.jpg" alt="Work 30" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work31.jpg" alt="Work 31" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work32.jpg" alt="Work 32" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work33.jpg" alt="Work 33" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work34.jpg" alt="Work 34" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work35.jpg" alt="Work 35" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work36.jpg" alt="Work 36" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work37.jpg" alt="Work 37" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work38.jpg" alt="Work 38" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work39.jpg" alt="Work 39" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work40.jpg" alt="Work 40" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work41.jpg" alt="Work 41" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work42.jpg" alt="Work 42" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work43.jpg" alt="Work 43" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work44.jpg" alt="Work 44" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work45.jpg" alt="Work 45" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work46.jpg" alt="Work 46" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work47.jpg" alt="Work 47" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work48.jpg" alt="Work 48" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work49.jpg" alt="Work 49" onclick="openModal(this.src)"></div>
+                        <div class="gallery-item"><img src="work50.jpg" alt="Work 50" onclick="openModal(this.src)"></div>
+                    </div>
+                </section>
             </div>
-        </section>
+
+            <div class="folder-card">
+                <section class="video-section" id="video">
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 25px;">Watch Us in Action</h2>
+                    <div class="video-container">
+                        <video width="100%" controls poster="work1.jpg" style="display: block;">
+                            <source src="promo-video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </section>
+            </div>
+
+        </div>
 
     </div>
 
@@ -640,16 +710,16 @@
             document.getElementById("imageModal").style.display = "none";
         }
 
-        // Hero Background Slideshow logic (1 to 25)
+        // Hero Background Slideshow logic (Updated from 25 to 50 images)
         const heroSection = document.getElementById("home");
-        const totalImages = 25;
+        const totalImages = 50;
         let currentImageIndex = 1;
 
         function changeHeroBackground() {
             // Keep the text-friendly dark gradient while setting the background image dynamically
             heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('work${currentImageIndex}.jpg')`;
             
-            // Advance index, cycle back to 1 after 25
+            // Advance index, cycle back to 1 after 50
             currentImageIndex = (currentImageIndex % totalImages) + 1;
         }
 
